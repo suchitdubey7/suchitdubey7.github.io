@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suchit Dubey | Strategy & Business Analytics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --card: #16161f;
+      --border: #2a2a3a;
+      --accent: #6c63ff;
+      --accent2: #00d4aa;
+      --text: #e8e8f0;
+      --muted: #8888a8;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.1rem; color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.88rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--accent); color: #fff; border: none;
+      padding: 0.45rem 1.2rem; border-radius: 6px; font-size: 0.85rem;
+      font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ---- HERO ---- */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: -100px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute; bottom: -200px; right: -100px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { max-width: 700px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(108,99,255,0.12); border: 1px solid rgba(108,99,255,0.3);
+      color: #a89fff; padding: 0.35rem 1rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 500; margin-bottom: 1.5rem;
+    }
+    .hero-badge::before { content: '●'; color: var(--accent2); font-size: 0.6rem; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      line-height: 1.12;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted); margin: 1.2rem 0 2rem;
+      max-width: 560px;
+    }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin: 2rem 0;
+    }
+    .stat-item { text-align: left; }
+    .stat-num {
+      font-size: 1.8rem; font-weight: 800; color: var(--white);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #8b7fff);
+      color: #fff; padding: 0.75rem 1.8rem; border-radius: 8px;
+      font-weight: 600; text-decoration: none; font-size: 0.92rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(108,99,255,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(108,99,255,0.45); }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      padding: 0.75rem 1.8rem; border-radius: 8px;
+      border: 1px solid var(--border); font-weight: 500;
+      text-decoration: none; font-size: 0.92rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ---- SECTIONS ---- */
+    section { padding: 90px 5%; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .section-desc { color: var(--muted); max-width: 580px; font-size: 0.96rem; }
+    .divider {
+      height: 1px; background: var(--border);
+      margin: 0 5%;
+    }
+
+    /* ---- ABOUT ---- */
+    #about .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; margin-top: 3rem;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 0.95rem; }
+    .about-text strong { color: var(--text); }
+    .about-highlights {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .highlight-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.2rem;
+      transition: border-color 0.2s;
+    }
+    .highlight-card:hover { border-color: var(--accent); }
+    .highlight-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .highlight-title { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+    .highlight-val { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ---- EXPERIENCE ---- */
+    #experience .exp-timeline { margin-top: 3rem; position: relative; }
+    .exp-item {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 2rem; margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date {
+      color: var(--muted); font-size: 0.82rem; font-weight: 500;
+      padding-top: 0.25rem;
+    }
+    .exp-company-logo {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.9rem; color: #fff;
+      flex-shrink: 0; margin-bottom: 0.75rem;
+    }
+    .exp-role { font-size: 1.05rem; font-weight: 700; color: var(--white); }
+    .exp-company { color: var(--accent); font-size: 0.88rem; font-weight: 500; margin: 0.2rem 0 0.8rem; }
+    .exp-bullets { list-style: none; }
+    .exp-bullets li {
+      color: var(--muted); font-size: 0.88rem; padding-left: 1.2rem;
+      position: relative; margin-bottom: 0.5rem;
+    }
+    .exp-bullets li::before {
+      content: '▸'; position: absolute; left: 0; color: var(--accent2);
+    }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+    .tag {
+      background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2);
+      color: #a89fff; padding: 0.2rem 0.65rem; border-radius: 999px;
+      font-size: 0.75rem; font-weight: 500;
+    }
+
+    /* ---- SKILLS ---- */
+    #skills .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .skill-category {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-category:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .skill-cat-title {
+      font-weight: 700; font-size: 0.85rem; color: var(--white);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .skill-cat-icon { font-size: 1.2rem; }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-chip {
+      background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.15);
+      color: #7de8d8; padding: 0.25rem 0.7rem; border-radius: 6px;
+      font-size: 0.78rem; font-weight: 500;
+    }
+
+    /* ---- EDUCATION & CERTS ---- */
+    #education .edu-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; margin-top: 3rem;
+    }
+    .edu-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+      transition: border-color 0.2s;
+    }
+    .edu-card:hover { border-color: var(--accent2); }
+    .edu-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .edu-degree { font-weight: 700; color: var(--white); font-size: 0.95rem; }
+    .edu-inst { color: var(--accent); font-size: 0.85rem; font-weight: 500; }
+    .edu-period { color: var(--muted); font-size: 0.8rem; }
+    .cert-section { margin-top: 3rem; }
+    .cert-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem; margin-top: 1.5rem;
+    }
+    .cert-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.2rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-color: var(--accent2); }
+    .cert-badge {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent2), #00a884);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .cert-name { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+    .cert-issuer { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+    .cert-date { font-size: 0.75rem; color: var(--accent2); margin-top: 0.3rem; }
+
+    /* ---- TESTIMONIAL ---- */
+    #testimonials { background: var(--bg2); }
+    .testimonial-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem;
+      max-width: 700px; margin: 3rem auto 0;
+      position: relative;
+    }
+    .quote-mark {
+      font-size: 5rem; color: var(--accent); opacity: 0.15;
+      font-family: Georgia, serif; line-height: 1;
+      position: absolute; top: 1rem; left: 1.5rem;
+    }
+    .testimonial-text {
+      color: var(--text); font-size: 1rem; line-height: 1.8;
+      font-style: italic; position: relative; z-index: 1;
+    }
+    .testimonial-author {
+      margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: #fff; font-size: 1rem;
+    }
+    .author-name { font-weight: 600; color: var(--white); font-size: 0.9rem; }
+    .author-title { font-size: 0.78rem; color: var(--muted); }
+
+    /* ---- CONTACT ---- */
+    #contact {
+      background: linear-gradient(135deg, rgba(108,99,255,0.06), rgba(0,212,170,0.04));
+      text-align: center;
+    }
+    #contact .section-desc { margin: 0 auto; text-align: center; }
+    .contact-links {
+      display: flex; gap: 1.2rem; justify-content: center;
+      flex-wrap: wrap; margin-top: 2.5rem;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      padding: 0.8rem 1.5rem; border-radius: 10px;
+      font-size: 0.88rem; font-weight: 500;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); transform: translateY(-2px); color: var(--white); }
+    .contact-link .icon { font-size: 1.1rem; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center; padding: 2rem 5%;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.82rem;
+    }
+
+    /* ---- SCROLL ANIMATIONS ---- */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      #about .about-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .exp-date { display: none; }
+      #education .edu-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Suchit<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://www.linkedin.com/in/suchit-dubey" target="_blank" class="nav-cta">LinkedIn ↗</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Open to Assistant Manager &amp; Manager roles</div>
+    <h1 class="hero-title">
+      Suchit Dubey<br/>
+      <span class="highlight">Strategy &amp; Analytics</span>
+    </h1>
+    <p class="hero-sub">
+      Chartered Accountant driving data-led business decisions at the intersection of finance, analytics, and large-scale data engineering.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">94<span>%</span></div>
+        <div class="stat-label">Reporting time reduction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100<span>M+</span></div>
+        <div class="stat-label">Rows in analytics pipelines</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">98<span>%</span></div>
+        <div class="stat-label">Data accuracy achieved</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#experience" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Me</div>
+  <h2 class="section-title">Finance meets Data Engineering</h2>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <p>
+        I'm a <strong>Chartered Accountant</strong> operating at the intersection of strategy, financial analytics, and large-scale data engineering — with a track record of building decision-grade analytical systems in high-volume financial environments.
+      </p>
+      <p>
+        My early career spanned <strong>statutory audits, bank audits, and NBFC reviews</strong>, building deep capabilities in financial diagnostics, risk evaluation, and control assessment.
+      </p>
+      <p>
+        At Motilal Oswal AMC, I lead analytics initiatives on datasets exceeding <strong>100M+ rows</strong>, architecting Python and SQL-driven pipelines that compressed reporting cycles from ~1 week to <strong>under 10 minutes</strong> — a 94% reduction — while boosting data accuracy by 40%+.
+      </p>
+      <p>
+        Beyond numbers, I'm a <strong>Certified Yoga Instructor</strong> and active Event Coordinator at The Art of Living — bringing the same discipline and mindfulness to both professional and personal life.
+      </p>
+    </div>
+    <div class="about-highlights fade-in">
+      <div class="highlight-card">
+        <div class="highlight-icon">📊</div>
+        <div class="highlight-title">Asset Management</div>
+        <div class="highlight-val">Motilal Oswal AMC · Current</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🏛️</div>
+        <div class="highlight-title">Chartered Accountant</div>
+        <div class="highlight-val">ICAI · 2024</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">📈</div>
+        <div class="highlight-title">CFA Candidate</div>
+        <div class="highlight-val">CFA Institute · Level I Passed</div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">📍</div>
+        <div class="highlight-title">Location</div>
+        <div class="highlight-val">Mumbai, Maharashtra</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Work Experience</div>
+  <h2 class="section-title">Where I've Made Impact</h2>
+  <div class="exp-timeline">
+
+    <div class="exp-item fade-in">
+      <div class="exp-date">Oct 2024 – Present<br/>1 yr 6 mos<br/>Mumbai, India</div>
+      <div>
+        <div class="exp-company-logo">MO</div>
+        <div class="exp-role">Assistant Manager</div>
+        <div class="exp-company">Motilal Oswal Asset Management Company Ltd. · Full-time</div>
+        <ul class="exp-bullets">
+          <li>Analyze net fund flows month-on-month across active equity mutual fund schemes to identify investment trends and inform sales strategies.</li>
+          <li>Develop comprehensive scorecards for Relationship Managers evaluating Gross Sales, Net Sales, SIP contribution, Net Revenue, and Incremental Yield.</li>
+          <li>Architect Python and SQL pipelines on 100M+ row datasets, reducing reporting cycles by ~94% (from ~1 week to under 10 minutes).</li>
+          <li>Improve data accuracy by 40%+, achieving ~98% reliability in critical financial workflows.</li>
+          <li>Analyze brokerage share of distributors across active funds to optimize distribution strategy.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">SQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">Microsoft Excel</span>
+          <span class="tag">Fund Analytics</span>
+          <span class="tag">Financial Modelling</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-date">Oct 2021 – Oct 2022<br/>1 yr 1 mo<br/>Dhanbad, India</div>
+      <div>
+        <div class="exp-company-logo">RS</div>
+        <div class="exp-role">Articled Assistant</div>
+        <div class="exp-company">Ranjit Singh And Associates · Internship</div>
+        <ul class="exp-bullets">
+          <li>Conducted statutory audits, bank audits, and NBFC reviews, developing expertise in financial diagnostics and risk evaluation.</li>
+          <li>Prepared financial statements and performed tax compliance work across multiple client engagements.</li>
+          <li>Built strong foundations in accounting standards, audit methodologies, and regulatory compliance.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Statutory Audit</span>
+          <span class="tag">Tax Preparation</span>
+          <span class="tag">Financial Reporting</span>
+          <span class="tag">NBFC Audit</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-date">Mar 2020 – Oct 2021<br/>1 yr 8 mos<br/>Ranchi, India</div>
+      <div>
+        <div class="exp-company-logo">HA</div>
+        <div class="exp-role">Articled Assistant</div>
+        <div class="exp-company">Himanshu Adukiya and Co. · Internship</div>
+        <ul class="exp-bullets">
+          <li>Managed end-to-end audit engagements, from planning through reporting across diverse industry clients.</li>
+          <li>Developed proficiency in GST filings, income tax returns, and regulatory compliance reporting.</li>
+          <li>Gained hands-on experience in bookkeeping, ledger scrutiny, and internal controls assessment.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">GST</span>
+          <span class="tag">Income Tax</span>
+          <span class="tag">Audit</span>
+          <span class="tag">Bookkeeping</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item fade-in">
+      <div class="exp-date">Sep 2019 – Feb 2020<br/>6 mos<br/>Ranchi, India</div>
+      <div>
+        <div class="exp-company-logo">PS</div>
+        <div class="exp-role">Articled Assistant</div>
+        <div class="exp-company">P S Paul and Co. · Apprenticeship</div>
+        <ul class="exp-bullets">
+          <li>Preparation and maintenance of books of accounts for various clients.</li>
+          <li>Assisted in tax compliance and basic audit support functions.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">Bookkeeping</span>
+          <span class="tag">Tax Preparation</span>
+          <span class="tag">Accounting</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills &amp; Expertise</div>
+  <h2 class="section-title">What I Bring to the Table</h2>
+  <p class="section-desc">A cross-disciplinary skillset spanning data engineering, financial analysis, strategy, and compliance.</p>
+  <div class="skills-grid">
+    <div class="skill-category fade-in">
+      <div class="skill-cat-title"><span class="skill-cat-icon">🛠️</span> Data & Analytics</div>
+      <div class="skill-chips">
+        <span class="skill-chip">Python</span>
+        <span class="skill-chip">SQL</span>
+        <span class="skill-chip">Microsoft Excel</span>
+        <span class="skill-chip">Data Pipelines</span>
+        <span class="skill-chip">Business Analytics</span>
+        <span class="skill-chip">Industry Analysis</span>
+      </div>
+    </div>
+    <div class="skill-category fade-in">
+      <div class="skill-cat-title"><span class="skill-cat-icon">💰</span> Finance & Accounting</div>
+      <div class="skill-chips">
+        <span class="skill-chip">Financial Analysis</span>
+        <span class="skill-chip">Financial Planning</span>
+        <span class="skill-chip">Financial Accounting</span>
+        <span class="skill-chip">Retirement Planning</span>
+        <span class="skill-chip">Financial Advisory</span>
+        <span class="skill-chip">Fund Analytics</span>
+      </div>
+    </div>
+    <div class="skill-category fade-in">
+      <div class="skill-cat-title"><span class="skill-cat-icon">📋</span> Audit & Compliance</div>
+      <div class="skill-chips">
+        <span class="skill-chip">Statutory Audit</span>
+        <span class="skill-chip">Tax Preparation</span>
+        <span class="skill-chip">Personal Tax Planning</span>
+        <span class="skill-chip">Corporate Law</span>
+        <span class="skill-chip">NBFC Audit</span>
+        <span class="skill-chip">GST Compliance</span>
+      </div>
+    </div>
+    <div class="skill-category fade-in">
+      <div class="skill-cat-title"><span class="skill-cat-icon">🎯</span> Strategy & Consulting</div>
+      <div class="skill-chips">
+        <span class="skill-chip">Strategic Planning</span>
+        <span class="skill-chip">Business Consulting</span>
+        <span class="skill-chip">Financial Consulting</span>
+        <span class="skill-chip">Game Theory</span>
+        <span class="skill-chip">Decision Frameworks</span>
+        <span class="skill-chip">Stakeholder Reporting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION & CERTS -->
+<section id="education">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">Academic Background</h2>
+  <div class="edu-grid">
+    <div class="edu-card fade-in">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-degree">CFA Program</div>
+      <div class="edu-inst">CFA Institute</div>
+      <div class="edu-period">Ongoing · Level I Passed (2019)</div>
+      <div class="edu-period" style="color:var(--muted); font-size:0.8rem; margin-top:0.5rem;">Finance, Analytical Techniques, Investment Management</div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-icon">📜</div>
+      <div class="edu-degree">Chartered Accountant</div>
+      <div class="edu-inst">Institute of Chartered Accountants of India (ICAI)</div>
+      <div class="edu-period">May 2019 – May 2024</div>
+      <div class="edu-period" style="color:var(--muted); font-size:0.8rem; margin-top:0.5rem;">Accounting, Finance, Statutory Audit, Taxation</div>
+    </div>
+  </div>
+
+  <div class="cert-section">
+    <div class="section-label" style="margin-top:2rem;">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🏛️</div>
+        <div>
+          <div class="cert-name">Strategy and Game Theory for Management</div>
+          <div class="cert-issuer">IIMA – IIM Ahmedabad</div>
+          <div class="cert-date">Issued Jun 2025 · ID: 4O86U8WXKWXR</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🧘</div>
+        <div>
+          <div class="cert-name">Certified Yoga Instructor</div>
+          <div class="cert-issuer">NCVET, MSDE – Government of India</div>
+          <div class="cert-date">Issued Nov 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIAL -->
+<section id="testimonials">
+  <div class="section-label" style="text-align:center;">Recommendations</div>
+  <h2 class="section-title" style="text-align:center;">What Others Say</h2>
+  <div class="testimonial-card fade-in">
+    <div class="quote-mark">"</div>
+    <p class="testimonial-text">
+      Suchit has a consistency in his approach to any problem solving. I started knowing him in the capacity of a meditation teacher and soon he earned a friend-like relationship. He has the skill of being aptly professional in personal matters and he also takes professional responsibilities with due personal attention. Such people have the raw material to rise as leaders.
+    </p>
+    <div class="testimonial-author">
+      <div class="author-avatar">AN</div>
+      <div>
+        <div class="author-name">Amrendra Narayan</div>
+        <div class="author-title">Assistant Professor &amp; Meditator · Veer Kunwar Singh University, Arrah</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <p class="section-desc">
+    Open to Assistant Manager and Manager roles in Strategy, Finance & Analytics. Feel free to reach out!
+  </p>
+  <div class="contact-links">
+    <a href="https://www.linkedin.com/in/suchit-dubey" target="_blank" class="contact-link">
+      <span class="icon">💼</span> LinkedIn Profile
+    </a>
+    <a href="mailto:casuchitdubey@gmail.com" class="contact-link">
+      <span class="icon">✉️</span> casuchitdubey@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/suchit-dubey" target="_blank" class="contact-link">
+      <span class="icon">📍</span> Mumbai, Maharashtra
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Suchit Dubey · Strategy &amp; Business Analytics · Chartered Accountant</p>
+</footer>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
