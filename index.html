@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Suchit Dubey — Strategy & Business Analytics</title>
+  <title>Suchit Dubey — CA · Data Engineer · Strategist</title>
   <style>
     :root {
       --bg:10 10 14;--fg:235 235 245;--muted:165 168 190;--card:18 18 26;
@@ -41,7 +41,7 @@
     @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
     .h1{font-size:var(--s5);font-weight:700;line-height:1.05;letter-spacing:-.04em;margin-bottom:1.25rem}
     .grad{background:linear-gradient(135deg,rgb(var(--a)),rgb(var(--b)));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-sub{font-size:var(--s0);color:rgb(var(--muted));max-width:52ch;margin-inline:auto;margin-bottom:2.5rem}
+    .hero-sub{font-size:var(--s0);color:rgb(var(--muted));max-width:58ch;margin-inline:auto;margin-bottom:2.5rem}
     .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-bottom:2.5rem}
     .pill{display:flex;align-items:center;gap:.6rem;background:rgb(var(--card));border:1px solid rgba(var(--border),.08);border-radius:999px;padding:.5rem 1.1rem;font-size:var(--s-1)}
     .pill b{color:rgb(var(--a));font-size:var(--s0)}
@@ -58,6 +58,10 @@
     .sh{font-size:var(--s3);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:.75rem}
     .ssub{font-size:var(--s0);color:rgb(var(--muted));max-width:54ch}
 
+    /* FLATICON ICONS */
+    .ficon{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(140,255,230,.25))}
+    .ficon-sm{width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(125,165,255,.25))}
+
     /* ABOUT */
     #about .ag{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start;margin-top:3rem}
     .ab{font-size:var(--s0);color:rgb(var(--muted))}
@@ -66,9 +70,17 @@
     .ac{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
     .ic{background:rgba(var(--border),.04);border:1px solid rgba(var(--border),.08);border-radius:var(--radius);padding:1.25rem;transition:border-color .2s}
     .ic:hover{border-color:rgba(var(--a),.35)}
-    .ic-i{font-size:1.4rem;margin-bottom:.5rem}
+    .ic-i{margin-bottom:.65rem;display:flex;align-items:center}
     .ic-t{font-size:var(--s-1);font-weight:600;color:rgb(var(--fg))}
     .ic-v{font-size:var(--s-1);color:rgb(var(--muted));margin-top:.2rem}
+
+    /* IMPACT STRIP */
+    #impact{background:rgb(var(--card));padding-block:clamp(2.5rem,5vw,4rem)}
+    .imp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(var(--border),.07);border-radius:var(--radius);overflow:hidden;margin-top:2.5rem}
+    .imp-item{background:rgb(var(--card));padding:2rem 1.75rem;display:flex;flex-direction:column;gap:.5rem}
+    .imp-num{font-size:var(--s3);font-weight:800;letter-spacing:-.04em;background:linear-gradient(135deg,rgb(var(--a)),rgb(var(--b)));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+    .imp-label{font-size:var(--s-1);color:rgb(var(--muted))}
+    .imp-icon{margin-bottom:.25rem}
 
     /* EXP */
     .el{display:flex;flex-direction:column;gap:.75rem;margin-top:2.5rem}
@@ -79,6 +91,7 @@
     .erole{font-size:var(--s1);font-weight:700;letter-spacing:-.02em}
     .eco{font-size:var(--s-1);color:rgb(var(--a));margin-top:.1rem}
     .edesc{font-size:var(--s-1);color:rgb(var(--muted));line-height:1.7;margin-bottom:1rem}
+    .edesc li{margin-left:1.25rem;margin-top:.4rem}
     .tags{display:flex;flex-wrap:wrap;gap:.4rem}
     .tag{font-size:.72rem;font-weight:500;padding:.25rem .7rem;border-radius:999px;border:1px solid rgba(var(--border),.12);color:rgb(var(--muted));background:rgba(var(--border),.04)}
     .emeta{display:flex;flex-direction:column;align-items:flex-end;gap:.75rem}
@@ -91,7 +104,7 @@
     .sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;margin-top:2.5rem}
     .sc{background:rgba(var(--border),.04);border:1px solid rgba(var(--border),.08);border-radius:var(--radius);padding:1.5rem;transition:.2s}
     .sc:hover{border-color:rgba(var(--b),.35);transform:translateY(-3px)}
-    .sc-h{display:flex;align-items:center;gap:.6rem;font-size:var(--s-1);font-weight:700;color:rgb(var(--fg));margin-bottom:1rem}
+    .sc-h{display:flex;align-items:center;gap:.75rem;font-size:var(--s-1);font-weight:700;color:rgb(var(--fg));margin-bottom:1rem}
     .chips{display:flex;flex-wrap:wrap;gap:.4rem}
     .chip{font-size:.72rem;font-weight:500;padding:.25rem .7rem;border-radius:6px;border:1px solid rgba(var(--a),.2);color:rgb(var(--a));background:rgba(var(--a),.07)}
 
@@ -99,7 +112,7 @@
     .eg{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:2.5rem}
     .edu{background:rgba(var(--border),.04);border:1px solid rgba(var(--border),.08);border-radius:var(--radius);padding:1.75rem;transition:.2s}
     .edu:hover{border-color:rgba(var(--b),.35)}
-    .edu-i{font-size:2rem;margin-bottom:.75rem}
+    .edu-i{margin-bottom:.75rem;display:flex;align-items:center}
     .edu-d{font-size:var(--s1);font-weight:700;letter-spacing:-.02em;margin-bottom:.25rem}
     .edu-n{font-size:var(--s-1);color:rgb(var(--a));font-weight:500}
     .edu-p{font-size:var(--s-1);color:rgb(var(--muted));margin-top:.25rem}
@@ -137,6 +150,7 @@
       .nav-links{display:none}
       .ec{grid-template-columns:1fr}
       .edate{display:none}
+      .imp-grid{grid-template-columns:1fr 1fr}
     }
   </style>
 </head>
@@ -157,16 +171,17 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="wrap" style="position:relative;z-index:1">
-    <div class="eyebrow rev"><span class="dot"></span>Open to Assistant Manager &amp; Manager roles</div>
-    <h1 class="h1 rev">Driving<br/><span class="grad">Data-Led Decisions</span></h1>
-    <p class="hero-sub rev">Chartered Accountant operating at the intersection of strategy, financial analytics, and large-scale data engineering — at Motilal Oswal AMC.</p>
+    <div class="eyebrow rev"><span class="dot"></span>Open to Senior Analyst &amp; Manager roles</div>
+    <h1 class="h1 rev">CA. Strategist.<br/><span class="grad">Big Data Engineer.</span></h1>
+    <p class="hero-sub rev">Chartered Accountant embedded in the CEO's office at Motilal Oswal AMC — engineering risk models, financial data pipelines, and go-to-market strategy at the intersection of finance and large-scale data.</p>
     <div class="stats rev">
-      <div class="pill"><b>94%</b><span>reporting time saved</span></div>
-      <div class="pill"><b>100M+</b><span>rows in pipelines</span></div>
-      <div class="pill"><b>98%</b><span>data accuracy</span></div>
-      <div class="pill"><b>5+</b><span>yrs in finance</span></div>
+      <div class="pill"><b>360×</b><span>automation speed-up</span></div>
+      <div class="pill"><b>100M+</b><span>rows processed</span></div>
+      <div class="pill"><b>CEO's</b><span>Office · MO AMC</span></div>
+      <div class="pill"><b>CA</b><span>+ Data Engineer</span></div>
     </div>
     <div class="btns rev">
       <a href="#experience" class="btn btn-p">View work ↓</a>
@@ -175,21 +190,46 @@
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="wrap">
-    <div class="rev"><span class="stag">About</span><h2 class="sh">Finance meets<br/>Data Engineering</h2></div>
+    <div class="rev"><span class="stag">About</span><h2 class="sh">Big Data is where<br/>I thrive</h2></div>
     <div class="ag">
       <div class="ab rev">
-        <p>I'm a <strong>Chartered Accountant</strong> operating at the intersection of strategy, financial analytics, and large-scale data engineering — with a track record of building decision-grade analytical systems in high-volume financial environments.</p>
-        <p>My early career spanned <strong>statutory audits, bank audits, and NBFC reviews</strong>, building deep capabilities in financial diagnostics, risk evaluation, and control assessment.</p>
-        <p>At Motilal Oswal AMC, I lead analytics on <strong>100M+ row datasets</strong>, architecting Python and SQL pipelines that compressed reporting cycles from ~1 week to <strong>under 10 minutes</strong> — a 94% reduction — while boosting accuracy to ~98%.</p>
-        <p>Beyond numbers, I'm a <strong>Certified Yoga Instructor</strong> and Event Coordinator at The Art of Living.</p>
+        <p>I'm a <strong>Chartered Accountant who builds financial systems</strong> — not just analyses them. Embedded in the CEO's office at Motilal Oswal AMC, I sit at the confluence of executive strategy, quantitative risk modelling, and large-scale data engineering.</p>
+        <p>My work spans <strong>end-to-end financial data pipelines, risk models for mutual fund schemes, pricing frameworks, and distribution strategy</strong> — capabilities that are rare in one profile. When data is at 100M+ row scale and the problem is complex, that's where I'm most at home.</p>
+        <p>Earlier, <strong>three years of CA articleship</strong> across statutory audits, bank audits, and NBFC reviews sharpened my instinct for financial diagnostics, control environments, and risk assessment — the foundation beneath every model I build today.</p>
+        <p>Outside the numbers: <strong>Certified Yoga Instructor</strong> and Event Coordinator at The Art of Living.</p>
       </div>
       <div class="ac rev">
-        <div class="ic"><div class="ic-i">📊</div><div class="ic-t">Asset Management</div><div class="ic-v">Motilal Oswal AMC · Current</div></div>
-        <div class="ic"><div class="ic-i">🏛️</div><div class="ic-t">Chartered Accountant</div><div class="ic-v">ICAI · May 2024</div></div>
-        <div class="ic"><div class="ic-i">📈</div><div class="ic-t">CFA Candidate</div><div class="ic-v">CFA Institute · Level I ✓</div></div>
-        <div class="ic"><div class="ic-i">📍</div><div class="ic-t">Location</div><div class="ic-v">Mumbai, Maharashtra</div></div>
+        <div class="ic">
+          <div class="ic-i">
+            <img src="https://cdn-icons-gif.flaticon.com/11256/11256735.gif" class="ficon" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none;font-size:1.7rem">🏢</span>
+          </div>
+          <div class="ic-t">CEO's Office</div>
+          <div class="ic-v">Motilal Oswal AMC · Current</div>
+        </div>
+        <div class="ic">
+          <div class="ic-i">
+            <img src="https://cdn-icons-gif.flaticon.com/11256/11256749.gif" class="ficon" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none;font-size:1.7rem">🏛️</span>
+          </div>
+          <div class="ic-t">Chartered Accountant</div>
+          <div class="ic-v">ICAI · May 2024</div>
+        </div>
+        <div class="ic">
+          <div class="ic-i">
+            <img src="https://cdn-icons-gif.flaticon.com/11256/11256756.gif" class="ficon" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none;font-size:1.7rem">🗄️</span>
+          </div>
+          <div class="ic-t">Big Data</div>
+          <div class="ic-v">100M+ row pipelines</div>
+        </div>
+        <div class="ic">
+          <div class="ic-i">
+            <img src="https://cdn-icons-gif.flaticon.com/11256/11256722.gif" class="ficon" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none;font-size:1.7rem">📍</span>
+          </div>
+          <div class="ic-t">Location</div>
+          <div class="ic-v">Mumbai, Maharashtra</div>
+        </div>
       </div>
     </div>
   </div>
@@ -197,6 +237,36 @@
 
 <hr/>
 
+<!-- IMPACT NUMBERS -->
+<section id="impact">
+  <div class="wrap">
+    <div class="rev" style="text-align:center"><span class="stag">Impact</span><h2 class="sh">Numbers that speak</h2></div>
+    <div class="imp-grid rev">
+      <div class="imp-item">
+        <div class="imp-icon"><img src="https://cdn-icons-gif.flaticon.com/11256/11256758.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">⚡</span></div>
+        <div class="imp-num">360×</div>
+        <div class="imp-label">Python automation speed-up — 3 hours of manual work reduced to 30 seconds</div>
+      </div>
+      <div class="imp-item">
+        <div class="imp-icon"><img src="https://cdn-icons-gif.flaticon.com/11256/11256744.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">📊</span></div>
+        <div class="imp-num">100M+</div>
+        <div class="imp-label">Rows processed across financial data pipelines with ~98% accuracy</div>
+      </div>
+      <div class="imp-item">
+        <div class="imp-icon"><img src="https://cdn-icons-gif.flaticon.com/11256/11256762.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">🛡️</span></div>
+        <div class="imp-num">94%</div>
+        <div class="imp-label">Reduction in reporting cycle time from ~1 week to under 10 minutes</div>
+      </div>
+      <div class="imp-item">
+        <div class="imp-icon"><img src="https://cdn-icons-gif.flaticon.com/11256/11256731.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">💼</span></div>
+        <div class="imp-num">5+</div>
+        <div class="imp-label">Years across financial analytics, audit, and strategic business functions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrap">
     <div class="rev"><span class="stag">Experience</span><h2 class="sh">Where I've made impact</h2></div>
@@ -204,9 +274,17 @@
 
       <div class="ec rev">
         <div>
-          <div class="etop"><div class="elogo">MO</div><div><div class="erole">Assistant Manager</div><div class="eco">Motilal Oswal Asset Management Company Ltd.</div></div></div>
-          <div class="edesc">Architect Python &amp; SQL pipelines on 100M+ row datasets, cutting reporting cycles by 94%. Build comprehensive RM scorecards evaluating Gross Sales, Net Sales, SIP contribution, Net Revenue, and Incremental Yield. Analyse fund flows and brokerage share across active equity schemes to drive distribution strategy.</div>
-          <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Excel</span><span class="tag">Fund Analytics</span><span class="tag">Financial Modelling</span></div>
+          <div class="etop"><div class="elogo">MO</div><div><div class="erole">Assistant Manager — CEO's Office</div><div class="eco">Motilal Oswal Asset Management Company Ltd.</div></div></div>
+          <div class="edesc">
+            <ul>
+              <li>Engineered <strong>quantitative risk models for mutual fund schemes</strong>, enabling identification of concentration risk, factor exposures, and drawdown scenarios across active equity portfolios.</li>
+              <li>Architected <strong>Python automation workflows</strong> that compressed 3-hour manual reporting cycles to under 30 seconds — a 360× efficiency gain — while sustaining ~98% data accuracy across 100M+ row datasets.</li>
+              <li>Developed <strong>go-to-market sales strategies and channel distribution frameworks</strong>, integrating gross sales, net sales, SIP contribution, and incremental yield metrics into RM scorecards.</li>
+              <li>Conducted <strong>deep-dive industry research and competitive intelligence analysis</strong> to inform strategic decisions at the CEO level, covering AUM trends, fund flow dynamics, and peer benchmarking.</li>
+              <li>Built <strong>pricing and distribution strategy models</strong> by analysing fund flows and brokerage share across active equity schemes to optimise channel economics.</li>
+            </ul>
+          </div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Risk Modelling</span><span class="tag">Big Data</span><span class="tag">Sales Strategy</span><span class="tag">Industry Research</span><span class="tag">Distribution Strategy</span><span class="tag">Financial Modelling</span></div>
         </div>
         <div class="emeta"><div class="edate">Oct 2024 – Present<br/>Mumbai, India</div><div class="earr">↗</div></div>
       </div>
@@ -214,8 +292,8 @@
       <div class="ec rev">
         <div>
           <div class="etop"><div class="elogo">RS</div><div><div class="erole">Articled Assistant</div><div class="eco">Ranjit Singh And Associates</div></div></div>
-          <div class="edesc">Conducted statutory audits, bank audits, and NBFC reviews, building expertise in financial diagnostics and risk evaluation. Prepared financial statements and performed tax compliance across multiple client engagements.</div>
-          <div class="tags"><span class="tag">Statutory Audit</span><span class="tag">Tax Preparation</span><span class="tag">NBFC Audit</span><span class="tag">Financial Reporting</span></div>
+          <div class="edesc">Conducted statutory audits, bank audits, and NBFC reviews, developing deep expertise in financial diagnostics, credit risk evaluation, and regulatory control assessment. Prepared financial statements and managed tax compliance across multi-sector client engagements.</div>
+          <div class="tags"><span class="tag">Statutory Audit</span><span class="tag">Bank Audit</span><span class="tag">NBFC Review</span><span class="tag">Tax Compliance</span><span class="tag">Financial Reporting</span></div>
         </div>
         <div class="emeta"><div class="edate">Oct 2021 – Oct 2022<br/>Dhanbad, India</div><div class="earr">↗</div></div>
       </div>
@@ -223,8 +301,8 @@
       <div class="ec rev">
         <div>
           <div class="etop"><div class="elogo">HA</div><div><div class="erole">Articled Assistant</div><div class="eco">Himanshu Adukiya and Co.</div></div></div>
-          <div class="edesc">Managed end-to-end audit engagements across diverse industry clients. Developed proficiency in GST filings, income tax returns, and regulatory compliance. Hands-on experience in bookkeeping, ledger scrutiny, and internal controls assessment.</div>
-          <div class="tags"><span class="tag">GST</span><span class="tag">Income Tax</span><span class="tag">Audit</span><span class="tag">Bookkeeping</span></div>
+          <div class="edesc">Managed end-to-end audit engagements across diverse industry verticals. Built proficiency in GST filings, income tax returns, and regulatory compliance. Hands-on experience in ledger scrutiny, bookkeeping, and internal control assessment.</div>
+          <div class="tags"><span class="tag">GST</span><span class="tag">Income Tax</span><span class="tag">Internal Controls</span><span class="tag">Audit</span></div>
         </div>
         <div class="emeta"><div class="edate">Mar 2020 – Oct 2021<br/>Ranchi, India</div><div class="earr">↗</div></div>
       </div>
@@ -232,7 +310,7 @@
       <div class="ec rev">
         <div>
           <div class="etop"><div class="elogo">PS</div><div><div class="erole">Articled Assistant</div><div class="eco">P S Paul and Co.</div></div></div>
-          <div class="edesc">Preparation and maintenance of books of accounts. Assisted in tax compliance and basic audit support functions.</div>
+          <div class="edesc">Maintained books of accounts and supported tax compliance operations. Foundational exposure to audit support functions, ledger management, and financial record-keeping in a professional CA firm environment.</div>
           <div class="tags"><span class="tag">Bookkeeping</span><span class="tag">Tax Preparation</span><span class="tag">Accounting</span></div>
         </div>
         <div class="emeta"><div class="edate">Sep 2019 – Feb 2020<br/>Ranchi, India</div><div class="earr">↗</div></div>
@@ -242,35 +320,85 @@
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
-    <div class="rev"><span class="stag">Skills</span><h2 class="sh">What I bring to the table</h2><p class="ssub">A cross-disciplinary set spanning data engineering, financial analysis, strategy, and compliance.</p></div>
+    <div class="rev"><span class="stag">Skills</span><h2 class="sh">What I bring to the table</h2><p class="ssub">A rare cross-disciplinary stack spanning big-data engineering, risk modelling, financial analysis, and corporate strategy.</p></div>
     <div class="sg">
-      <div class="sc rev"><div class="sc-h"><span>🛠️</span>Data &amp; Analytics</div><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Excel</span><span class="chip">Data Pipelines</span><span class="chip">Business Analytics</span><span class="chip">Industry Analysis</span></div></div>
-      <div class="sc rev"><div class="sc-h"><span>💰</span>Finance &amp; Accounting</div><div class="chips"><span class="chip">Financial Analysis</span><span class="chip">Financial Planning</span><span class="chip">Fund Analytics</span><span class="chip">Financial Advisory</span><span class="chip">Retirement Planning</span></div></div>
-      <div class="sc rev"><div class="sc-h"><span>📋</span>Audit &amp; Compliance</div><div class="chips"><span class="chip">Statutory Audit</span><span class="chip">Tax Preparation</span><span class="chip">GST</span><span class="chip">Corporate Law</span><span class="chip">NBFC Audit</span></div></div>
-      <div class="sc rev"><div class="sc-h"><span>🎯</span>Strategy &amp; Consulting</div><div class="chips"><span class="chip">Strategic Planning</span><span class="chip">Business Consulting</span><span class="chip">Game Theory</span><span class="chip">Decision Frameworks</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="wrap">
-    <div class="rev"><span class="stag">Education</span><h2 class="sh">Academic background</h2></div>
-    <div class="eg">
-      <div class="edu rev"><div class="edu-i">🎓</div><div class="edu-d">CFA Program</div><div class="edu-n">CFA Institute</div><div class="edu-p">Ongoing · Level I Passed (2019)</div><div class="edu-p" style="margin-top:.5rem;font-size:.72rem">Finance · Analytical Techniques · Investment Management</div></div>
-      <div class="edu rev"><div class="edu-i">📜</div><div class="edu-d">Chartered Accountant</div><div class="edu-n">Institute of Chartered Accountants of India (ICAI)</div><div class="edu-p">May 2019 – May 2024</div><div class="edu-p" style="margin-top:.5rem;font-size:.72rem">Accounting · Finance · Statutory Audit · Taxation</div></div>
-    </div>
-    <div style="margin-top:3rem">
-      <div class="rev"><span class="stag">Certifications</span></div>
-      <div class="cl">
-        <div class="cc rev"><div class="cb">🏛️</div><div><div class="cn">Strategy and Game Theory for Management</div><div class="cm">IIMA – IIM Ahmedabad · Jun 2025 · ID: 4O86U8WXKWXR</div></div></div>
-        <div class="cc rev"><div class="cb">🧘</div><div><div class="cn">Certified Yoga Instructor</div><div class="cm">NCVET, MSDE – Government of India · Nov 2021</div></div></div>
+      <div class="sc rev">
+        <div class="sc-h">
+          <img src="https://cdn-icons-gif.flaticon.com/11256/11256744.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">🛠️</span>
+          Data Engineering &amp; Analytics
+        </div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Big Data</span><span class="chip">Data Pipelines</span><span class="chip">Excel</span><span class="chip">Automation</span><span class="chip">Business Analytics</span></div>
+      </div>
+      <div class="sc rev">
+        <div class="sc-h">
+          <img src="https://cdn-icons-gif.flaticon.com/11256/11256762.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">🛡️</span>
+          Risk &amp; Financial Modelling
+        </div>
+        <div class="chips"><span class="chip">Risk Models</span><span class="chip">Mutual Fund Analytics</span><span class="chip">Financial Modelling</span><span class="chip">Fund Flow Analysis</span><span class="chip">Pricing Strategy</span></div>
+      </div>
+      <div class="sc rev">
+        <div class="sc-h">
+          <img src="https://cdn-icons-gif.flaticon.com/11256/11256731.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">🎯</span>
+          Strategy &amp; Market Intelligence
+        </div>
+        <div class="chips"><span class="chip">Sales Strategy</span><span class="chip">Industry Research</span><span class="chip">Competitive Analysis</span><span class="chip">Distribution Strategy</span><span class="chip">Game Theory</span></div>
+      </div>
+      <div class="sc rev">
+        <div class="sc-h">
+          <img src="https://cdn-icons-gif.flaticon.com/11256/11256749.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">📋</span>
+          Finance &amp; Compliance
+        </div>
+        <div class="chips"><span class="chip">Chartered Accountant</span><span class="chip">Statutory Audit</span><span class="chip">GST &amp; Taxation</span><span class="chip">NBFC Audit</span><span class="chip">Corporate Law</span><span class="chip">Financial Advisory</span></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="rev"><span class="stag">Education</span><h2 class="sh">Academic background</h2></div>
+    <div class="eg" style="grid-template-columns:1fr">
+      <div class="edu rev">
+        <div class="edu-i">
+          <img src="https://cdn-icons-gif.flaticon.com/11256/11256749.gif" class="ficon" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none;font-size:2rem">📜</span>
+        </div>
+        <div class="edu-d">Chartered Accountant (CA)</div>
+        <div class="edu-n">Institute of Chartered Accountants of India (ICAI)</div>
+        <div class="edu-p">May 2019 – May 2024</div>
+        <div class="edu-p" style="margin-top:.5rem;font-size:.72rem">Accounting · Finance · Statutory Audit · Taxation · Corporate Law</div>
+      </div>
+    </div>
+    <div style="margin-top:3rem">
+      <div class="rev"><span class="stag">Certifications</span></div>
+      <div class="cl">
+        <div class="cc rev">
+          <div class="cb">
+            <img src="https://cdn-icons-gif.flaticon.com/11256/11256753.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">🏛️</span>
+          </div>
+          <div>
+            <div class="cn">Strategy and Game Theory for Management</div>
+            <div class="cm">IIM Ahmedabad · Jun 2025 · ID: 4O86U8WXKWXR</div>
+          </div>
+        </div>
+        <div class="cc rev">
+          <div class="cb">
+            <img src="https://cdn-icons-gif.flaticon.com/11256/11256768.gif" class="ficon-sm" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"/><span style="display:none">🧘</span>
+          </div>
+          <div>
+            <div class="cn">Certified Yoga Instructor</div>
+            <div class="cm">NCVET, MSDE – Government of India · Nov 2021</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
 <section id="testimonials">
   <div class="wrap">
     <div class="rev" style="text-align:center"><span class="stag">Recommendation</span><h2 class="sh">What others say</h2></div>
@@ -281,11 +409,12 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section id="cta" style="text-align:center">
   <div class="wrap">
     <div class="rev">
       <h2 class="sh" style="font-size:var(--s4)">Have a hard problem?</h2>
-      <p class="ssub" style="margin-inline:auto;margin-top:.75rem;margin-bottom:2.5rem">If that's the case, don't hesitate to reach out. I'm always open to hearing proposals and growing together.</p>
+      <p class="ssub" style="margin-inline:auto;margin-top:.75rem;margin-bottom:2.5rem">Whether it's a data pipeline that doesn't scale, a risk model that needs building, or a strategy that needs grounding in numbers — I'm the one to call.</p>
     </div>
     <div class="btns rev">
       <a href="mailto:casuchitdubey@gmail.com" class="btn btn-p">Contact me</a>
@@ -295,7 +424,7 @@
 </section>
 
 <footer>
-  <span>© 2026 · Suchit Dubey — Strategy &amp; Business Analytics</span>
+  <span>© 2026 · Suchit Dubey — CA · Data Engineer · Strategist</span>
   <div class="fl">
     <a href="https://www.linkedin.com/in/suchit-dubey" target="_blank">LinkedIn</a>
     <a href="mailto:casuchitdubey@gmail.com">Email</a>
